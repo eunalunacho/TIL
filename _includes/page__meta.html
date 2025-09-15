@@ -1,4 +1,4 @@
-{% assign document = post | default: page %}
+<!-- {% assign document = post | default: page %}
 {% if document.read_time or document.show_date %}
   <p class="page__meta">
     {% if document.show_date and document.date %}
@@ -27,5 +27,18 @@
         {% endif %}
       </span>
     {% endif %}
+  </p>
+{% endif %} -->
+
+{% assign document = post | default: page %}
+{% if document.show_date and document.date %}
+  <p class="page__meta">
+    <span class="page__meta-date">
+      <i class="far fa-calendar-alt" aria-hidden="true"></i>
+      {% assign date_format = site.date_format | default: "%Y-%m-%d %H:%M" %}
+      <time datetime="{{ document.date | date_to_xmlschema }}">
+        {{ document.date | date: date_format }}
+      </time>
+    </span>
   </p>
 {% endif %}
