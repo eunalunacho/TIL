@@ -7,3 +7,8 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+.page__content,
+.archive {
+  max-width: 1000px;  /* 기본은 약 800px, 더 넓게 하고 싶으면 여기 숫자 조절 */
+}
