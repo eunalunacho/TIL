@@ -9,24 +9,24 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 
-/* 🔹 전체 컨테이너 최대폭 넓히기 */
+/* 1️⃣ 레이아웃 전체를 플렉스로 */
 .layout--home,
 .layout--archive,
 .layout--single,
 .layout--default {
-  max-width: 1200px; /* 원하는 만큼 (예: 1100~1200px 추천) */
+  display: flex;        /* 사이드바와 본문 나란히 */
+  max-width: 1200px;    /* 전체 최대폭 */
   margin: 0 auto;
-  display: flex; /* 사이드바와 본문을 플렉스 정렬 */
 }
 
-/* 🔹 사이드바는 고정폭 */
+/* 2️⃣ 사이드바 고정폭 */
 .sidebar {
-  flex: 0 0 260px;  /* 고정 260px */
+  flex: 0 0 260px;      /* 사이드바 260px 고정 */
 }
 
-/* 🔹 본문은 남은 공간 전부 사용 */
+/* 3️⃣ 본문은 남은 공간 꽉 채움 */
 .page__content,
 .archive {
-  flex: 1;          /* 남은 공간 꽉 채움 */
-  max-width: none;  /* 기본 max-width 제한 해제 */
+  flex: 1;             /* 남은 공간 모두 사용 */
+  max-width: none;     /* 기존 폭 제한 해제 */
 }
