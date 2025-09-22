@@ -319,7 +319,7 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single-sidebar
+      layout: single # single-sidebar
       author_profile: true
       sidebar: true
       read_time: false 
