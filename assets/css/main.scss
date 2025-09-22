@@ -9,21 +9,18 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 
-.page__inner-wrap,
-.container,
-.site-main,
+/* 🔹 전체 페이지 최대 폭 늘리기 */
+.layout--home,
+.layout--archive,
+.layout--single,
+.layout--default {
+  max-width: 1200px;  /* 원하는 값으로 조정 (기본 약 800px) */
+  margin: 0 auto;
+}
+
+/* 🔹 사이드바는 그대로 두고, 본문 영역만 넓히기 */
+.page__content,
 .archive {
-  max-width: 1200px;
-}
-
-
-.sidebar {
-  width: 240px;
-  flex: 0 0 240px;
-}
-
-.page__inner-wrap > .page__content,
-.site-main .page__content,
-.archive .entries-list {
-  width: calc(100% - 240px);
+  max-width: none;   /* 테마에서 제한 두는 거 해제 */
+  width: calc(100% - 260px); /* 사이드바(약 260px) 뺀 나머지 전부 사용 */
 }
