@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: archive
 ---
 
@@ -27,53 +27,4 @@ layout: archive
     </div>
     <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
   </section>
-{% endfor %} -->
-
----
-layout: default
----
-<article class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <p class="post-date">{{ page.date | date: "%Y-%m-%d %H:%M" }}</p>
-  {{ content }}
-</article>
-
-<div class="main-container">
-  <!-- 사이드바 포함 -->
-  <aside class="sidebar">
-    {% include sidebar.html %}
-  </aside>
-
-  <!-- 포스트 내용 -->
-  <main class="content">
-    {{ content }}
-    
-    <!-- 기존 아카이브 목록 -->
-    <ul class="taxonomy__index">
-      {% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' %}
-      {% for year in postsInYear %}
-        <li>
-          <a href="#{{ year.name }}">
-            <strong>{{ year.name }}</strong> <span class="taxonomy__count">{{ year.items | size }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-
-    {% assign entries_layout = page.entries_layout | default: 'list' %}
-    {% assign postsByYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' %}
-    {% for year in postsByYear %}
-      <section id="{{ year.name }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ year.name }}</h2>
-        <div class="entries-{{ entries_layout }}">
-          {% for post in year.items %}
-            {% include archive-single.html type=entries_layout %}
-          {% endfor %}
-        </div>
-        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
-      </section>
-    {% endfor %}
-  </main>
-</div>
-
-{% include footer.html %}
+{% endfor %}
