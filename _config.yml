@@ -319,8 +319,9 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single-sidebar
+      layout: single
       author_profile: true
+      sidebar: true
       read_time: false 
       show_date: true
       comments: false
