@@ -1,6 +1,17 @@
 {% if page.author_profile or layout.author_profile or page.sidebar %}
   <div class="sidebar sticky">
   {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
+  
+  <nav class="nav__list">
+    <span class="nav__sub-title">Categories</span>
+    <ul class="nav__items">
+      {% for category in site.categories %}
+        <li>
+          <a href="{{ site.baseurl }}/categories/#{{ category[0] | slugify }}">{{ category[0] }} ({{ category[1].size }})</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
   {% if page.sidebar %}
     {% for s in page.sidebar %}
       {% if s.image %}

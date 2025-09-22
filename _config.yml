@@ -319,9 +319,10 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: single-sidebar
       author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: true
+      read_time: false 
+      show_date: true
+      comments: false
+      share: false
+      related: false
