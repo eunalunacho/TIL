@@ -8,7 +8,22 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-.page__content,
+
+.page__inner-wrap,
+.container,
+.site-main,
 .archive {
-  max-width: 1000px;  /* 기본은 약 800px, 더 넓게 하고 싶으면 여기 숫자 조절 */
+  max-width: 1200px;
+}
+
+
+.sidebar {
+  width: 240px;
+  flex: 0 0 240px;
+}
+
+.page__inner-wrap > .page__content,
+.site-main .page__content,
+.archive .entries-list {
+  width: calc(100% - 240px);
 }
