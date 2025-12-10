@@ -5,6 +5,7 @@ permalink: /categories/db
 author_profile: true
 sidebar:
   nav: "sidebar-cs"
+  ignore: true
 taxonomy: Database
 ---
 
