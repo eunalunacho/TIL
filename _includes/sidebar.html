@@ -2,7 +2,7 @@
   <div class="sidebar sticky">
   {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
   
-  <nav class="nav__list">
+  <!-- <nav class="nav__list">
     <span class="nav__sub-title">Categories</span>
     <ul class="nav__items">
       {% for category in site.categories %}
@@ -11,7 +11,7 @@
         </li>
       {% endfor %}
     </ul>
-  </nav>
+  </nav> -->
   {% if page.sidebar %}
     {% for s in page.sidebar %}
       {% if s.image %}
