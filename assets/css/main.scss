@@ -15,25 +15,35 @@ search: false
   background-color: #ffffff !important;
 }
 
-body {
-  background-color: #ffffff;
-}
-
-
 .archive__subtitle {
   border-bottom: none;
   padding-bottom: 0;   // 줄 없앴으니 아래 여백도 조금 줄이기
 }
 
+body {
+  background-color: #ffffff;
+}
+
 .author__avatar {
   pointer-events: none;   // 클릭 불가
   cursor: default !important;  // 링크 커서 제거
-  opacity: 1 !important;       // 비활성화처럼 보이는 것 방지
-  filter: none !important;     // hover 효과 제거
+}
+.author__avatar a:hover,
+.author__avatar a:focus {
+  text-decoration: none;
+}
+.author__avatar img {
+  opacity: 1 !important;           // 흐리게 보이지 않게
+  filter: none !important;         // 회색/블러 효과 제거
 }
 
 .page__footer {
   background-color: #e5e5e5;   
-  color: #666666;              
+  color: #555555;              
 //   border-top: 1px solid #e5e5e5; // 위에 얇은 회색 선
+}
+.page__footer a,
+.page__footer span,
+.page__footer i {
+  color: #555555 !important;
 }
