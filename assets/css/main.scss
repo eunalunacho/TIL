@@ -9,3 +9,7 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 
+.masthead {
+  border-bottom: none;
+  box-shadow: none;  // 혹시 테마에서 그림자도 있으면 같이 제거
+}
