@@ -1,6 +1,6 @@
 ---
 title: "Database"
-layout: archive  
+layout: single  
 permalink: /categories/db
 author_profile: true
 sidebar:

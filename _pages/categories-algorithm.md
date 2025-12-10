@@ -1,6 +1,6 @@
 ---
 title: "Algorithm (Python)"
-layout: archive
+layout: single
 permalink: /categories/algorithm/
 author_profile: true
 sidebar:

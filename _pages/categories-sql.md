@@ -1,6 +1,6 @@
 ---
 title: "SQL"
-layout: archive  
+layout: single  
 permalink: /categories/sql/  
 author_profile: true
 sidebar:
