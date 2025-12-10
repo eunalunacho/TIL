@@ -12,19 +12,28 @@ search: false
 .masthead {
   border-bottom: none;
   box-shadow: none;  // 혹시 테마에서 그림자도 있으면 같이 제거
+  background-color: #ffffff !important;
 }
 
 body {
   background-color: #ffffff;
 }
 
-.page__footer {
-  background-color: #e5e5e5;   // 파란 바 → 흰색
-  color: #ffffff;              // 글자색 옅은 회색
-//   border-top: 1px solid #e5e5e5; // 위에 얇은 회색 선
-}
 
 .archive__subtitle {
   border-bottom: none;
   padding-bottom: 0;   // 줄 없앴으니 아래 여백도 조금 줄이기
+}
+
+.author__avatar {
+  pointer-events: none;   // 클릭 불가
+  cursor: default !important;  // 링크 커서 제거
+  opacity: 1 !important;       // 비활성화처럼 보이는 것 방지
+  filter: none !important;     // hover 효과 제거
+}
+
+.page__footer {
+  background-color: #e5e5e5;   
+  color: #666666;              
+//   border-top: 1px solid #e5e5e5; // 위에 얇은 회색 선
 }
