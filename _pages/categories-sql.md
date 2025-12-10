@@ -8,7 +8,6 @@ sidebar:
 taxonomy: SQL
 ---
 
-<h2 style="margin-top: 0; font-weight: bold; border-bottom: none;">SQL</h2>
 
 {% assign posts = site.categories.SQL %}
 {% for post in posts %}
