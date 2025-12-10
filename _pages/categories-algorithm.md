@@ -1,6 +1,6 @@
 ---
 title: "Algorithm (Python)"
-layout: single
+layout: archive
 permalink: /categories/algorithm/
 author_profile: true
 sidebar:
@@ -11,5 +11,5 @@ taxonomy: Algorithm
 
 {% assign posts = site.categories.Algorithm %}
 {% for post in posts %}
-  {% include archive-single.html type=page.entries_layout %}
+  {% include archive-single.html type="list" %}
 {% endfor %}

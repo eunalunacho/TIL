@@ -1,6 +1,6 @@
 ---
 title: "SQL"
-layout: single  
+layout: archive  
 permalink: /categories/sql/  
 author_profile: true
 sidebar:
@@ -11,5 +11,5 @@ taxonomy: SQL
 
 {% assign posts = site.categories.SQL %}
 {% for post in posts %}
-  {% include archive-single.html type=page.entries_layout %}
+  {% include archive-single.html type="list" %}
 {% endfor %}

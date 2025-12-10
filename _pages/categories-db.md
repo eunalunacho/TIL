@@ -1,6 +1,6 @@
 ---
 title: "Database"
-layout: single  
+layout: archive  
 permalink: /categories/db
 author_profile: true
 sidebar:
@@ -11,5 +11,5 @@ taxonomy: Database
 
 {% assign posts = site.categories.Database %}
 {% for post in posts %}
-  {% include archive-single.html type=page.entries_layout %}
+  {% include archive-single.html type="list" %}
 {% endfor %}
