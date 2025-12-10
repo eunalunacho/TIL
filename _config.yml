@@ -67,7 +67,7 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-  hide                   : # true, false (default)
+  hide                   : true # true, false (default)
 search                   : # true, false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia, google
@@ -114,19 +114,19 @@ analytics:
 # Site Author
 author:
   name             : "Euna Cho"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "아자좌"
+  avatar           : "/assets/image/bio-photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "공부는 끝이 없다..."
   location         : "Korea"
   email            :
   links:
     - label: "eunalunacho@gmail.com"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "mailto:eunalunacho@gmail.com"
     - label: "Portfolio"
       icon: "fas fa-fw fa-link"
       url: "https://eunalunacho.github.io/"
     - label: "LinkdIn"
-      icon: "fab fa-fw fa-twitter-square"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/euna-cho-b80707297/"
     # - label: "Facebook"
     #   icon: "fab fa-fw fa-facebook-square"
@@ -149,7 +149,7 @@ footer:
     #   # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: https://github.com/eunalunacho
+      url: https://github.com/eunalunacho
     # - label: "GitLab"
     #   icon: "fab fa-fw fa-gitlab"
     #   # url:

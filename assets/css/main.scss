@@ -13,3 +13,18 @@ search: false
   border-bottom: none;
   box-shadow: none;  // 혹시 테마에서 그림자도 있으면 같이 제거
 }
+
+body {
+  background-color: #ffffff;
+}
+
+.page__footer {
+  background-color: #e5e5e5;   // 파란 바 → 흰색
+  color: #ffffff;              // 글자색 옅은 회색
+//   border-top: 1px solid #e5e5e5; // 위에 얇은 회색 선
+}
+
+.archive__subtitle {
+  border-bottom: none;
+  padding-bottom: 0;   // 줄 없앴으니 아래 여백도 조금 줄이기
+}
