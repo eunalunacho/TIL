@@ -1,12 +1,22 @@
 # main links
 main:
-  # - title: "Quick-Start Guide"
-  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Problem Solving"
+    children:
+      - title: "Algorithm (Python)"
+        url: /categories/algorithm  
+      - title: "SQL"
+        url: /categories/sql
+        
+  - title: "CS Study"
+    children:
+      - title: "Database"
+        url: /categories/db
+      - title: "Network"
+        url: /categories/network
+      - title: "OS"
+        url: /categories/os
+
+  - title: "Trouble Shooting"
+    children:
+      - title: "Error Log"
+        url: /categories/trouble-shooting

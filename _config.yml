@@ -321,7 +321,8 @@ defaults:
     values:
       layout: single # single-sidebar
       author_profile: true
-      sidebar: true
+      sidebar: 
+        nav: "main"
       read_time: false 
       show_date: true
       comments: false
