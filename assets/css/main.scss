@@ -28,17 +28,38 @@ body {
   background-color: #ffffff;
 }
 
-.author__avatar a {
+.author__avatar a,
+.author__name a {
   pointer-events: none;   // 클릭 불가
   cursor: default !important;  // 링크 커서 제거
 }
 .author__avatar a:hover,
-.author__avatar a:focus {
+.author__avatar a:focus,
+.author__name a:hover,
+.author__name a:focus {
   text-decoration: none;
 }
 .author__avatar img {
   opacity: 1 !important;           // 흐리게 보이지 않게
   filter: none !important;         // 회색/블러 효과 제거
+}
+
+/* 사이드바 항상 또렷하게 보이게 */
+.sidebar,
+.sidebar:hover {
+  opacity: 1 !important;
+  filter: none !important;   // 혹시라도 그레이스케일 효과 있을 경우 대비
+}
+
+/* Recent Posts의 제목 링크, 항상 또렷하게 */
+.archive__item-title a {
+  color: #222222 !important;    // 진한 회색
+  opacity: 1 !important;
+}
+
+.archive__item-title a:hover {
+  color: #222222 !important;    // hover 때도 색 안 바꾸고
+  text-decoration: none;   // 원하면 밑줄, 싫으면 이 줄 지워도 됨
 }
 
 .page__footer {
