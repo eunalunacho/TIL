@@ -15,6 +15,10 @@ search: false
   background-color: #ffffff !important;
 }
 
+.greedy-nav {
+  background-color: #ffffff !important;
+}
+
 .archive__subtitle {
   border-bottom: none;
   padding-bottom: 0;   // 줄 없앴으니 아래 여백도 조금 줄이기
@@ -24,7 +28,7 @@ body {
   background-color: #ffffff;
 }
 
-.author__avatar {
+.author__avatar a {
   pointer-events: none;   // 클릭 불가
   cursor: default !important;  // 링크 커서 제거
 }
@@ -42,8 +46,7 @@ body {
   color: #555555;              
 //   border-top: 1px solid #e5e5e5; // 위에 얇은 회색 선
 }
-.page__footer a,
-.page__footer span,
-.page__footer i {
+.page__footer,
+.page__footer * {
   color: #555555 !important;
 }
