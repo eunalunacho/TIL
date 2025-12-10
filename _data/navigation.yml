@@ -1,12 +1,18 @@
 # main links
 main:
+  - title: "Home"
+    url: /
+  - title: "About"
+    url: /about/
+
+sidebar-cs:
   - title: "Problem Solving"
     children:
       - title: "Algorithm (Python)"
         url: /categories/algorithm  
       - title: "SQL"
-        url: /categories/sql
-        
+        url: /categories/sql  
+
   - title: "CS Study"
     children:
       - title: "Database"

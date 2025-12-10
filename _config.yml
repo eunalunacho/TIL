@@ -322,7 +322,7 @@ defaults:
       layout: single # single-sidebar
       author_profile: true
       sidebar: 
-        nav: "main"
+        nav: "sidebar-cs"
       read_time: false 
       show_date: true
       comments: false
