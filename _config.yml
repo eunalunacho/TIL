@@ -317,7 +317,7 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: posts
+      # type: posts
     values:
       layout: single # single-sidebar
       author_profile: true
