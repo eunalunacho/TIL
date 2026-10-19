@@ -4,11 +4,39 @@ layout: archive
 
 {{ content }}
 
-<h3 class="archive__subtitle">Recent Posts</h3>
+<style>
+  .home-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2em; }
+  .home-columns .archive__subtitle { margin-top: 0; }
+  .top-posts { padding-left: 1.2em; }
+  .top-posts li { margin-bottom: 0.6em; }
+  .top-posts__views { color: #7a8288; font-size: 0.75em; }
+  @media (max-width: 768px) { .home-columns { grid-template-columns: 1fr; } }
+</style>
 
-{% assign posts = site.posts | slice: 0, 5 %}
+<div class="home-columns">
+  <section>
+    <h3 class="archive__subtitle">Top 5</h3>
+    {% assign top_posts = site.data.top_posts %}
+    {% if top_posts and top_posts.size > 0 %}
+      <ol class="top-posts">
+        {% for post in top_posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="top-posts__views">· {{ post.views }}회</span>
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <p>최근 30일 조회수를 집계하고 있습니다.</p>
+    {% endif %}
+  </section>
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html entries=posts type=entries_layout %}
+  <section>
+    <h3 class="archive__subtitle">Recent Posts</h3>
+    {% assign posts = site.posts | slice: 0, 5 %}
+    {% assign entries_layout = page.entries_layout | default: 'list' %}
+    <div class="entries-{{ entries_layout }}">
+      {% include documents-collection.html entries=posts type=entries_layout %}
+    </div>
+  </section>
 </div>
