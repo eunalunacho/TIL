@@ -1,5 +1,5 @@
 ---
-title: "Error Log"
+title: "Trouble Shooting"
 layout: archive
 permalink: /categories/trouble-shooting/
 author_profile: true

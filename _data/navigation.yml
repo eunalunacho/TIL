@@ -22,7 +22,9 @@ sidebar-cs:
       - title: "OS"
         url: /categories/os
 
-  - title: "Trouble Shooting"
+  - title: "Blog"
     children:
-      - title: "Error Log"
+      - title: "Trouble Shooting"
         url: /categories/trouble-shooting
+      - title: "Retrospect"
+        url: /categories/retrospect
