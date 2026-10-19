@@ -9,7 +9,4 @@ sidebar:
 taxonomy: Algorithm
 ---
 
-{% assign posts = site.categories.Algorithm %}
-{% for post in posts %}
-  {% include archive-single.html type="list" %}
-{% endfor %}
+{% include category-paged.html category="Algorithm" per_page=6 %}

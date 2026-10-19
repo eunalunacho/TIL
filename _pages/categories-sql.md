@@ -9,7 +9,4 @@ sidebar:
 taxonomy: SQL
 ---
 
-{% assign posts = site.categories.SQL %}
-{% for post in posts %}
-  {% include archive-single.html type="list" %}
-{% endfor %}
+{% include category-paged.html category="SQL" per_page=6 %}

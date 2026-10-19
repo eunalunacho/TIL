@@ -1,0 +1,78 @@
+{% comment %}
+  카테고리 글 목록을 페이지 단위로 보여 줍니다.
+  GitHub Pages 기본 빌드는 jekyll-paginate가 홈 화면만 나눠 주므로,
+  카테고리 페이지는 전체 목록을 출력한 뒤 스크립트로 나눕니다. (?page=N)
+
+  사용: {% include category-paged.html category="Algorithm" per_page=6 %}
+{% endcomment %}
+
+{% assign posts = site.categories[include.category] %}
+{% assign per_page = include.per_page | default: 6 %}
+
+{% if posts and posts.size > 0 %}
+  <div class="entries-list" id="paged-list" data-per-page="{{ per_page }}">
+    {% for post in posts %}
+      {% include archive-single.html type="list" %}
+    {% endfor %}
+  </div>
+  <nav class="pagination" id="paged-nav" hidden><ul></ul></nav>
+
+  <script>
+    (function () {
+      var list = document.getElementById('paged-list');
+      var nav = document.getElementById('paged-nav');
+      var items = list.querySelectorAll('.list__item');
+      var perPage = parseInt(list.dataset.perPage, 10);
+      var total = Math.ceil(items.length / perPage);
+      if (total <= 1) return;
+
+      var PREV = "{{ site.data.ui-text[site.locale].pagination_previous | default: 'Previous' }}";
+      var NEXT = "{{ site.data.ui-text[site.locale].pagination_next | default: 'Next' }}";
+
+      function link(label, page, cls) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.textContent = label;
+        if (page === null) {
+          a.href = '#';
+          a.className = 'disabled' + (cls ? ' ' + cls : '');
+          a.addEventListener('click', function (e) { e.preventDefault(); });
+        } else {
+          a.href = '?page=' + page;
+        }
+        li.appendChild(a);
+        return li;
+      }
+
+      function render(page) {
+        for (var i = 0; i < items.length; i++) {
+          var onPage = i >= (page - 1) * perPage && i < page * perPage;
+          items[i].style.display = onPage ? '' : 'none';
+        }
+
+        var ul = nav.querySelector('ul');
+        ul.innerHTML = '';
+        ul.appendChild(link(PREV, page > 1 ? page - 1 : null));
+
+        /* 현재 페이지 앞뒤 2개 + 첫/마지막 페이지만 보여 주고 나머지는 …로 줄임 */
+        var start = Math.max(2, page - 2);
+        var end = Math.min(total - 1, page + 2);
+        ul.appendChild(link('1', page === 1 ? null : 1, page === 1 ? 'current' : ''));
+        if (start > 2) ul.appendChild(link('…', null));
+        for (var p = start; p <= end; p++) {
+          ul.appendChild(link(String(p), p === page ? null : p, p === page ? 'current' : ''));
+        }
+        if (end < total - 1) ul.appendChild(link('…', null));
+        ul.appendChild(link(String(total), page === total ? null : total, page === total ? 'current' : ''));
+
+        ul.appendChild(link(NEXT, page < total ? page + 1 : null));
+        nav.hidden = false;
+      }
+
+      var page = parseInt(new URLSearchParams(location.search).get('page'), 10) || 1;
+      render(Math.min(Math.max(page, 1), total));
+    })();
+  </script>
+{% else %}
+  <p>아직 작성한 글이 없습니다.</p>
+{% endif %}

@@ -9,7 +9,4 @@ sidebar:
 taxonomy: Database
 ---
 
-{% assign posts = site.categories.Database %}
-{% for post in posts %}
-  {% include archive-single.html type="list" %}
-{% endfor %}
+{% include category-paged.html category="Database" per_page=6 %}
