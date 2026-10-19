@@ -26,5 +26,5 @@ sidebar-cs:
     children:
       - title: "Trouble Shooting"
         url: /categories/trouble-shooting
-      - title: "Retrospect"
-        url: /categories/retrospect
+      - title: "Review"
+        url: /categories/review
