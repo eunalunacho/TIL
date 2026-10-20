@@ -1,9 +1,9 @@
 # main links
 main:
   - title: "Home"
-    url: ..
+    url: /
   - title: "About"
-    url: /about/
+    url: https://eunalunacho.github.io/
 
 sidebar-cs:
   - title: "Problem Solving"
