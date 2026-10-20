@@ -11,7 +11,15 @@ layout: archive
   .top-posts li { margin-bottom: 0.6em; }
   .top-posts__views { color: #7a8288; font-size: 0.75em; }
   @media (max-width: 768px) { .home-columns { grid-template-columns: 1fr; } }
+  /* 넓은 화면: 잔디를 본문 오른쪽 여백(220px)에 배치. 좁은 화면에서는 본문 위에 표시 */
+  @media (min-width: 1280px) {
+    .archive { position: relative; }
+    .github-grass { position: absolute; top: 0; right: 0; width: 200px; }
+  }
+  @media (max-width: 1279px) { .github-grass { max-width: 320px; } }
 </style>
+
+{% include github-grass.html user="eunalunacho" weeks=20 %}
 
 <div class="home-columns">
   <section>

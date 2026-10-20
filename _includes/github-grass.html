@@ -1,0 +1,72 @@
+{% comment %}
+  GitHub 잔디(최근 N주)를 그립니다.
+  데이터: github-contributions-api.jogruber.de (공개 API, 토큰 불필요)
+  불러오지 못하면 위젯을 숨깁니다.
+
+  사용: {% include github-grass.html user="eunalunacho" weeks=20 %}
+{% endcomment %}
+
+<aside class="github-grass" id="github-grass" data-user="{{ include.user }}" data-weeks="{{ include.weeks | default: 20 }}" hidden>
+  <a href="https://github.com/{{ include.user }}" target="_blank" rel="noopener" class="github-grass__chart"></a>
+  <div class="github-grass__footer">
+    <span class="github-grass__total"></span>
+    <span class="github-grass__legend">Less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</span>
+  </div>
+</aside>
+
+<style>
+  .github-grass { font-size: 0.6em; color: #57606a; margin-bottom: 2em; }
+  .github-grass__chart { display: block; }
+  .github-grass__chart svg { width: 100%; height: auto; display: block; }
+  .github-grass__footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 4px; gap: 2px 6px; }
+  .github-grass__total { white-space: nowrap; }
+  .github-grass__legend { white-space: nowrap; margin-left: auto; }
+  .github-grass__legend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; vertical-align: middle; }
+  .github-grass .l0 { background: #ebedf0; } .github-grass .l1 { background: #9be9a8; }
+  .github-grass .l2 { background: #40c463; } .github-grass .l3 { background: #30a14e; }
+  .github-grass .l4 { background: #216e39; }
+</style>
+
+<script>
+  (function () {
+    var box = document.getElementById('github-grass');
+    var user = box.dataset.user;
+    var weeks = parseInt(box.dataset.weeks, 10);
+    var COLORS = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
+    var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var CELL = 10, GAP = 2, TOP = 12;
+
+    fetch('https://github-contributions-api.jogruber.de/v4/' + user + '?y=last')
+      .then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); })
+      .then(function (data) {
+        var days = data.contributions;
+        var last = new Date(days[days.length - 1].date + 'T00:00:00');
+        /* 마지막 주는 오늘까지만, 첫 주는 일요일부터 시작하도록 맞춤 */
+        var startIndex = days.length - 1 - last.getDay() - (weeks - 1) * 7;
+        var shown = days.slice(Math.max(startIndex, 0));
+
+        var pitch = CELL + GAP;
+        var w = weeks * pitch - GAP, h = TOP + 7 * pitch - GAP;
+        var svg = ['<svg viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="GitHub contributions">'];
+        var lastMonth = -1;
+        shown.forEach(function (d, i) {
+          var col = Math.floor(i / 7), row = i % 7;
+          var date = new Date(d.date + 'T00:00:00');
+          if (row === 0 && date.getMonth() !== lastMonth) {
+            if (lastMonth !== -1 || date.getDate() <= 7) {
+              svg.push('<text x="' + col * pitch + '" y="8" font-size="8" fill="#57606a">' + MONTHS[date.getMonth()] + '</text>');
+            }
+            lastMonth = date.getMonth();
+          }
+          svg.push('<rect x="' + col * pitch + '" y="' + (TOP + row * pitch) + '" width="' + CELL + '" height="' + CELL +
+            '" rx="2" fill="' + COLORS[d.level] + '"><title>' + d.date + ': ' + d.count + ' contributions</title></rect>');
+        });
+        svg.push('</svg>');
+
+        box.querySelector('.github-grass__chart').innerHTML = svg.join('');
+        box.querySelector('.github-grass__total').textContent = data.total.lastYear + ' contributions in the last year';
+        box.hidden = false;
+      })
+      .catch(function () { box.remove(); });
+  })();
+</script>
