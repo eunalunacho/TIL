@@ -98,6 +98,11 @@ body {
   list-style: none;
 }
 
+/* 게시물 글자 크기 한 단계 축소 (제목·본문·코드 모두 em 기준이라 함께 줄어듦) */
+.page__inner-wrap {
+  font-size: 0.9em;
+}
+
 /* 글 목록 제목 크기 */
 .list__item .archive__item-title {
   font-size: 1.05em;
