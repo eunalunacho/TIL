@@ -15,9 +15,10 @@
 </aside>
 
 <style>
-  .github-grass { font-size: 0.65em; color: #57606a; margin-bottom: 2em; }
+  /* 화면 크기와 상관없이 같은 크기로 보이도록 px 고정 */
+  .github-grass { width: 218px; font-size: 11px; line-height: 1.4; color: #57606a; margin: 1.5em 0 0; }
   .github-grass__chart { display: block; }
-  .github-grass__chart svg { width: 100%; height: auto; display: block; }
+  .github-grass__chart svg { display: block; }
   .github-grass__footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 4px; gap: 2px 6px; }
   .github-grass__total { white-space: nowrap; }
   .github-grass__legend { white-space: nowrap; margin-left: auto; }
@@ -34,7 +35,7 @@
     var weeks = parseInt(box.dataset.weeks, 10);
     var COLORS = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
     var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var CELL = 10, GAP = 2, TOP = 13;
+    var CELL = 10, GAP = 3, TOP = 14;
 
     fetch('https://github-contributions-api.jogruber.de/v4/' + user + '?y=last')
       .then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); })
@@ -47,14 +48,14 @@
 
         var pitch = CELL + GAP;
         var w = weeks * pitch - GAP, h = TOP + 7 * pitch - GAP;
-        var svg = ['<svg viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="GitHub contributions">'];
+        var svg = ['<svg width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="GitHub contributions">'];
         var lastMonth = -1;
         shown.forEach(function (d, i) {
           var col = Math.floor(i / 7), row = i % 7;
           var date = new Date(d.date + 'T00:00:00');
           if (row === 0 && date.getMonth() !== lastMonth) {
             if (lastMonth !== -1 || date.getDate() <= 7) {
-              svg.push('<text x="' + col * pitch + '" y="8" font-size="9" fill="#57606a">' + MONTHS[date.getMonth()] + '</text>');
+              svg.push('<text x="' + col * pitch + '" y="10" font-size="10" fill="#57606a">' + MONTHS[date.getMonth()] + '</text>');
             }
             lastMonth = date.getMonth();
           }

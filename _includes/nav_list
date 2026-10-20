@@ -23,5 +23,6 @@
         </li>
       {% endfor %}
     {% endfor %}
+    <li class="nav__grass">{% include github-grass.html user="eunalunacho" weeks=17 %}</li>
   </ul>
 </nav>

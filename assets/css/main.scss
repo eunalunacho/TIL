@@ -77,3 +77,28 @@ body {
 .page__footer * {
   color: #555555 !important;
 }
+/* 사이드바: 숨겨지기 전(1024px 이상)까지 가로 폭 고정, 스크롤 없이 전체 표시 */
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 240px !important;
+  }
+  .sidebar.sticky {
+    position: static;
+    overflow: visible;
+    max-height: none;
+  }
+  .page,
+  .archive {
+    width: calc(100% - 260px);
+  }
+}
+
+/* 사이드바 메뉴 아래 GitHub 잔디 */
+.nav__items .nav__grass {
+  list-style: none;
+}
+
+/* 글 목록 제목 크기 */
+.list__item .archive__item-title {
+  font-size: 1.05em;
+}
