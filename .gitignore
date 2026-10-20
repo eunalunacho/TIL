@@ -30,3 +30,6 @@ codekit-config.json
 .sass-cache
 _asset_bundler_cache
 _site
+
+# 블로그 글 원본 사진 (til-blog 스킬 입력, GitHub에 올리지 않음)
+_inbox/
