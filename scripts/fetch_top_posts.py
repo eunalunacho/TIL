@@ -25,8 +25,10 @@ from google.analytics.data_v1beta.types import (
 
 TOP_N = 5
 BASEURL = "/TIL"
-# 글 주소만 집계 (예: /TIL/20261019_python1/). 홈·카테고리 페이지는 제외
-POST_PATH_REGEX = rf"^{BASEURL}/[0-9]{{8}}_[a-z]+[0-9]*/$"
+# 글 주소만 집계. 홈·카테고리·태그 페이지는 제외
+#   코테 풀이: /TIL/{사이트}/{묶음}/{번호}/  (예: /TIL/pgs/basic/78/)
+#   블로그 글: /TIL/{영문-슬러그}/          (예: /TIL/hackathon-2026-review/, 하이픈 1개 이상)
+POST_PATH_REGEX = rf"^{BASEURL}/((pgs|ssql)/[a-z0-9-]+/[0-9]+|[a-z0-9]+(-[a-z0-9]+)+)/$"
 TITLE_SUFFIX = " - Eunalog; Today I Learned"
 OUTPUT_PATH = Path(__file__).resolve().parent.parent / "_data" / "top_posts.yml"
 
