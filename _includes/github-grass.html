@@ -15,7 +15,7 @@
 </aside>
 
 <style>
-  .github-grass { font-size: 0.6em; color: #57606a; margin-bottom: 2em; }
+  .github-grass { font-size: 0.65em; color: #57606a; margin-bottom: 2em; }
   .github-grass__chart { display: block; }
   .github-grass__chart svg { width: 100%; height: auto; display: block; }
   .github-grass__footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 4px; gap: 2px 6px; }
@@ -34,7 +34,7 @@
     var weeks = parseInt(box.dataset.weeks, 10);
     var COLORS = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
     var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var CELL = 10, GAP = 2, TOP = 12;
+    var CELL = 10, GAP = 2, TOP = 13;
 
     fetch('https://github-contributions-api.jogruber.de/v4/' + user + '?y=last')
       .then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); })
@@ -54,7 +54,7 @@
           var date = new Date(d.date + 'T00:00:00');
           if (row === 0 && date.getMonth() !== lastMonth) {
             if (lastMonth !== -1 || date.getDate() <= 7) {
-              svg.push('<text x="' + col * pitch + '" y="8" font-size="8" fill="#57606a">' + MONTHS[date.getMonth()] + '</text>');
+              svg.push('<text x="' + col * pitch + '" y="8" font-size="9" fill="#57606a">' + MONTHS[date.getMonth()] + '</text>');
             }
             lastMonth = date.getMonth();
           }
