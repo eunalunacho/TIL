@@ -33,6 +33,7 @@ description: Use when the user runs /til-blog with an _inbox folder name followe
    사용자에게 미리보기를 열었다고 알리고, 아래 "초안 메모"가 있으면 함께 보여 준다.
 9. **수정 반복**: 사용자 요청대로 고치고 7~8을 다시 한다.
 10. **배포 (OK 받은 뒤에만)**: 글 파일과 `assets/images/posts/<슬러그>/`만 add → 커밋 → push.
+    `_data/navigation.yml`에서 Review 메뉴가 주석 처리돼 있으면(첫 Review 글) 주석을 풀고 같이 커밋한다.
     `curl`로 `https://eunalunacho.github.io/TIL/<슬러그>/`를 한 번 확인한다. 아직 404면 Pages 배포 대기 중이라고 알리고 링크를 준다. 반복 폴링하지 않는다.
 
 `_inbox/`는 `.gitignore` 대상이다. 원본 사진과 preview.html은 지우지 않고 남긴다.

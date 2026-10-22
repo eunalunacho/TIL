@@ -5,26 +5,39 @@ main:
   - title: "About"
     url: https://eunalunacho.github.io/
 
+# 사이드바 메뉴: 직무(AI·Data)와 가까운 순서로 배치
+# 글이 아직 없는 카테고리는 주석으로 숨겨 두고, 첫 글을 올릴 때 주석을 푼다
+# (카테고리 페이지는 _pages/categories-*.md 에 이미 만들어져 있음)
 sidebar-cs:
+  - title: "AI & Data"
+    children:
+      - title: "Paper Review"
+        url: /categories/paper-review
+      # - title: "Hands-on"
+      #   url: /categories/hands-on
+
+  # - title: "Project Log"
+  #   children:
+  #     - title: "Trouble Shooting"
+  #       url: /categories/trouble-shooting
+
   - title: "Problem Solving"
     children:
       - title: "Algorithm (Python)"
-        url: /categories/algorithm  
+        url: /categories/algorithm
       - title: "SQL"
-        url: /categories/sql  
+        url: /categories/sql
 
   - title: "CS Study"
     children:
       - title: "Database"
         url: /categories/db
-      - title: "Network"
-        url: /categories/network
-      - title: "OS"
-        url: /categories/os
+      # - title: "Network"
+      #   url: /categories/network
+      # - title: "OS"
+      #   url: /categories/os
+      # - title: "Infra"
+      #   url: /categories/infra
 
-  - title: "Blog"
-    children:
-      - title: "Trouble Shooting"
-        url: /categories/trouble-shooting
-      - title: "Review"
-        url: /categories/review
+  # - title: "Review"
+  #   url: /categories/review
